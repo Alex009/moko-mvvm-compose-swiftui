@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    id("dev.icerock.moko.kswift")
 }
 
 version = "1.0"
@@ -17,10 +18,11 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = "15.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "MultiPlatformLibrary"
+            isStatic = false
 
             export("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
             export("dev.icerock.moko:mvvm-flow:$mokoMvvmVersion")
@@ -75,4 +77,8 @@ android {
         minSdk = 21
         targetSdk = 32
     }
+}
+
+kswift {
+    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
 }

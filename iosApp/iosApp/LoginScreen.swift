@@ -7,46 +7,45 @@
 //
 
 import SwiftUI
+import MultiPlatformLibrary
+import mokoMvvmFlowSwiftUI
+import Combine
 
 struct LoginScreen: View {
-    @State private var login: String = ""
-    @State private var password: String = ""
-    @State private var isLoading: Bool = false
-    @State private var isSuccessfulAlertShowed: Bool = false
+    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
     
-    private var isButtonEnabled: Bool {
-        get {
-            !isLoading && !login.isEmpty && !password.isEmpty
-        }
-    }
+    @State private var isSuccessfulAlertShowed: Bool = false
     
     var body: some View {
         Group {
             VStack(spacing: 8.0) {
-                TextField("Login", text: $login)
+                TextField("Login", text: viewModel.binding(\.login))
                     .textFieldStyle(.roundedBorder)
-                    .disabled(isLoading)
+                    .disabled(viewModel.state(\.isLoading))
                 
-                SecureField("Password", text: $password)
+                SecureField("Password", text: viewModel.binding(\.password))
                     .textFieldStyle(.roundedBorder)
-                    .disabled(isLoading)
+                    .disabled(viewModel.state(\.isLoading))
                 
                 Button(
                     action: {
-                        isLoading = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            isLoading = false
-                            isSuccessfulAlertShowed = true
-                        }
+                        viewModel.onLoginPressed()
                     }, label: {
-                        if isLoading {
+                        if viewModel.state(\.isLoading) {
                             ProgressView()
                         } else {
                             Text("Login")
                         }
                     }
-                ).disabled(!isButtonEnabled)
+                ).disabled(!viewModel.state(\.isButtonEnabled))
             }.padding()
+        }.onReceive(createPublisher(viewModel.actions)) { action in
+            let actionKs = LoginViewModelActionKs(action)
+            switch(actionKs) {
+            case .loginSuccess:
+                isSuccessfulAlertShowed = true
+                break
+            }
         }.alert(
             "Login successful",
             isPresented: $isSuccessfulAlertShowed

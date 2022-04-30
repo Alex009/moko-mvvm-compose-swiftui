@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		2298ADFB281D1B9C00E48E23 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298ADFA281D1B9C00E48E23 /* LoginScreen.swift */; };
+		22D1437D281D2E3C00877407 /* mvvm-compose-swiftui_shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D1437C281D2E3C00877407 /* mvvm-compose-swiftui_shared.swift */; };
 		BFEB439EC3BA1230B2717052 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFC86256250121488CCB760 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +20,7 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		2298ADFA281D1B9C00E48E23 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		22D1437C281D2E3C00877407 /* mvvm-compose-swiftui_shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "mvvm-compose-swiftui_shared.swift"; path = "../shared/build/cocoapods/framework/MultiPlatformLibrarySwift/mvvm-compose-swiftui_shared.swift"; sourceTree = "<group>"; };
 		35F7955DFCEB2B4412BBFA11 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		5D1F1757EDB573EB0431395F /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		22D1437B281D2E2300877407 /* kswift */ = {
+			isa = PBXGroup;
+			children = (
+				22D1437C281D2E3C00877407 /* mvvm-compose-swiftui_shared.swift */,
+			);
+			name = kswift;
+			sourceTree = "<group>";
+		};
 		524F2A576B70A627391AE5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				22D1437B281D2E2300877407 /* kswift */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				16B0D155DA2A6101340F0EC6 /* Pods */,
@@ -104,6 +115,7 @@
 				7555FF77242A565900829871 /* Sources */,
 				7555FF79242A565900829871 /* Resources */,
 				0E42395E7B77DDDF48973EE7 /* Frameworks */,
+				12C4EE351A8EB569C0D6B483 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +172,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12C4EE351A8EB569C0D6B483 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FB1517A6BA217D7B1E69C486 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				22D1437D281D2E3C00877407 /* mvvm-compose-swiftui_shared.swift in Sources */,
 				2298ADFB281D1B9C00E48E23 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
