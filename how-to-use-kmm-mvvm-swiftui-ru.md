@@ -431,6 +431,7 @@ TextField("Login", text: viewModel.binding(\.login))
 `enum LoginViewModelActionKs` из `sealed interface LoginViewModel.Action`. Испольузя автоматически
 генерируемый `enum` мы получаем гарантию соответствия кейсов в `enum` и в `sealed interface`, поэтому
 теперь мы можем полагаться на exhaustive логику switch.
+Подробнее про MOKO KSwift можно прочитать [в статье](https://habr.com/ru/post/571714/).
 
 В итоге мы получили SwiftUI экран, который управляется из общего кода используя подход MVVM.
 
