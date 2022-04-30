@@ -1,7 +1,7 @@
 # Как использовать Kotlin Multiplatform ViewModel в SwiftUI и Jetpack Compose
 
 Мы в [IceRock Development](https://icerock.dev) уже много лет пользуемся подходом MVVM, а последние
-4 года наши ViewModel'и расположены в общем коде, за счет использования нашей библиотеки
+4 года наши `ViewModel` расположены в общем коде, за счет использования нашей библиотеки
 [moko-mvvm](https://github.com/icerockdev/moko-mvvm). В последний год мы активно переходим на 
 использование Jetpack Compose и SwiftUI для построения UI в наших проектах. И это потребовало 
 улучшения MOKO MVVM, чтобы разработчикам на обеих платформах было удобно работать с таким подходом. 
@@ -23,7 +23,7 @@ CocoaPod).
 
 ![wizard-cocoapods](media/wizard-cocoapods-integration.png)
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/ee223a80e17616e622d135c0651ab454eabfad7a)
 
 ## Экран авторизации на Android с Jetpack Compose
 
@@ -131,7 +131,7 @@ fun LoginScreen() {
 
 ![android-compose-mvvm](media/android-compose-mvvm.gif)
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/69cf1904cd16f34b5bc646cdcacda3b72c8b58cf)
 
 ## Экран авторизации в iOS с SwiftUI
 
@@ -192,7 +192,7 @@ struct LoginScreen: View {
 
 ![ios-swiftui-mvvm](media/ios-swiftui-mvvm.gif)
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/760622ab392b1e723e4bb508d8f5c8b97b9ca5a7)
 
 ## Реализуем общую ViewModel
 
@@ -283,7 +283,7 @@ kotlinx-coroutines (но можно использовать и `MutableLiveData
 мы объединяем под единый `sealed interface Action`, чтобы точно было известно какие действия может 
 сообщить данная `ViewModel`. 
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/d628fb60fedeeb0d259508aa09d3a98ebbc9651c)
 
 ## Подключаем общую ViewModel к Android
 
@@ -345,7 +345,7 @@ Button(
 Запускаем приложение и видим что все работает точно также, как работало до общего кода, но теперь 
 вся логика работы экрана управляется общей ViewModel.
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/a93b9a3b6f1e413bebbba3a30bc5a198ebbf4e84)
 
 ## Подключаем общую ViewModel к iOS
 
@@ -434,7 +434,7 @@ TextField("Login", text: viewModel.binding(\.login))
 
 В итоге мы получили SwiftUI экран, который управляется из общего кода используя подход MVVM.
 
-[git commit](TODO)
+[git commit](https://github.com/Alex009/moko-mvvm-compose-swiftui/commit/5e260fbf9e4957c6fa5d1679a4282691d37da96a)
 
 ## Выводы
 
@@ -445,7 +445,8 @@ TextField("Login", text: viewModel.binding(\.login))
 стремимся упростить работу разработчиков и под Android и iOS. Интеграция SwiftUI и MOKO MVVM 
 потребовала множество экспериментов, но итоговый результат выглядит удобным в использовании.
 
-Вы можете самостоятельно попробовать проект, созданный в этой статье, [на GitHub](TODO).
+Вы можете самостоятельно попробовать проект, созданный в этой статье, 
+[на GitHub](https://github.com/Alex009/moko-mvvm-compose-swiftui).
 
 Также, если вас интересует тема Kotlin Multiplatform Mobile, рекомендуем наши материалы на
 [kmm.icerock.dev](https://kmm.icerock.dev).
