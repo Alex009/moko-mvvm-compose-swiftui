@@ -42,4 +42,6 @@ dependencies {
     // Activity
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
+    // viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
 }
