@@ -67,8 +67,8 @@ dependencies {
 ```
 
 При выполнении Gradle Sync получаем сообщение о несовместимости версии Jetpack Compose и Kotlin. 
-Это связано с тем что Compose использует компиляторный плагин для Kotlin, а API компиляторных 
-плагинов пока не стабилизировано. Поэтому нам нужно поставить ту версию Kotlin, которую поддерживает
+Это связано с тем что Compose использует compiler plugin для Kotlin, а их API  пока не стабилизировано. 
+Поэтому нам нужно поставить ту версию Kotlin, которую поддерживает
 используемая нами версия Compose - `1.6.10`.
 
 Далее остается сверстать экран авторизации, привожу сразу готовый код:
@@ -428,7 +428,7 @@ TextField("Login", text: viewModel.binding(\.login))
 `CFlow` в `AnyPublisher` от Combine. Для надежности обработки действий мы используем 
 [moko-kswift](https://github.com/icerockdev/moko-kswift). Это gradle плагин, который автоматически
 генерирует swift код, на основе Kotlin. В данном случае был сгенерирован Swift 
-`enum LoginViewModelActionKs` из `sealed interface LoginViewModel.Action`. Испольузя автоматически
+`enum LoginViewModelActionKs` из `sealed interface LoginViewModel.Action`. Используя автоматически
 генерируемый `enum` мы получаем гарантию соответствия кейсов в `enum` и в `sealed interface`, поэтому
 теперь мы можем полагаться на exhaustive логику switch.
 Подробнее про MOKO KSwift можно прочитать [в статье](https://habr.com/ru/post/571714/).
