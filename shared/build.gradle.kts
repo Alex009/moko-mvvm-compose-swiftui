@@ -6,6 +6,8 @@ plugins {
 
 version = "1.0"
 
+val mokoMvvmVersion = "0.13.0"
+
 kotlin {
     android()
     iosX64()
@@ -18,18 +20,32 @@ kotlin {
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = "MultiPlatformLibrary"
+
+            export("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
+            export("dev.icerock.moko:mvvm-flow:$mokoMvvmVersion")
         }
     }
-    
+
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
+
+                api("dev.icerock.moko:mvvm-core:$mokoMvvmVersion")
+                api("dev.icerock.moko:mvvm-flow:$mokoMvvmVersion")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                api("dev.icerock.moko:mvvm-flow-compose:$mokoMvvmVersion")
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
