@@ -7,7 +7,7 @@ plugins {
 
 version = "1.0"
 
-val mokoMvvmVersion = "0.13.0"
+val mokoMvvmVersion = "0.15.0"
 
 kotlin {
     android()
